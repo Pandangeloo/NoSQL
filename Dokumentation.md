@@ -10,8 +10,12 @@ Det resulterade i csv filer med rätt antal data men ProductName och Supplier va
 Vi har skapat en databas som heter MongoLab i ett kluster som samtliga gruppmedlemmar har åtkomst till. Där skapade vi Collections med namn Products och SalesData. I MongoDB la vi sedan till csv-filerna i sina respektive Collections. Under importen användes de förslagna datatyperna för samtliga kolumner förutom SalesTimestamp där Date användes istället för String.
 
 
-#Fortsätt här :)
+# Aggregationer
+## Total Sales Value
+Använder data från SalesData. Summerar ihop det totala försäljningsvärdet. Multiplicerar alltså quantity med PricePerUnit och summerar ihop det totala försäljningsvärdet i databasen.
 
+## Average Sell Value Per Hour
+Använder data från SalesData för att beräkna hur mycket som totalt har sålts och hur många timmar som använts för det, för att sedan beräkna medelvärdet per timme.
 
 # Att skapa KPI-Visualiseringar
 
