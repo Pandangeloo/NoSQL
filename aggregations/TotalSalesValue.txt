@@ -1,0 +1,15 @@
+[
+  {
+    $group: {
+      _id: null,
+      totalSellValue: {
+        $sum: {
+          $multiply: [
+            "$Quantity",
+            "$PricePerUnit"
+          ]
+        }
+      }
+    }
+  }
+]
