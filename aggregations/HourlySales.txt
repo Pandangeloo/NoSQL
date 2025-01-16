@@ -1,0 +1,32 @@
+[
+  {
+    $addFields: {
+      Hour: {
+        $dateToParts: {
+          date: "$SalesTimestamp"
+        }
+      }
+    }
+  },
+  {
+    $group: {
+      _id: "$Hour.hour",
+      TotalSold: {
+        $sum: "$Quantity"
+      }
+    }
+  },
+  {
+    $match: {
+      _id: {
+        $gte: 0,
+        $lte: 23
+      }
+    }
+  },
+  {
+    $sort: {
+      _id: 1
+    }
+  }
+]
