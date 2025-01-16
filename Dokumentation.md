@@ -80,6 +80,8 @@ Steg 4 `$sort`:
 ```
 
 # Att skapa KPI-Visualiseringar
+Vi valde 3 KPI'er baserade på uppgiftens beskrivning. 
+
 Top 5 products:
 Stapeldiagram som visar dom 5 bästsäljande produkter. x-axeln visar antal många produkter som säljs och y-axel visar produktnamn.
 
