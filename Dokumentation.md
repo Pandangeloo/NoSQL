@@ -97,3 +97,11 @@ Hourly Sales Trend: Linjediagram med timme (x-axel) och antal sålda enheter (y-
 # Widgets
 
 MVI -Most valued Item - det är ju den produkt som sålt bäst. Den använder sig av samma vy som top 5 produkter, men är bara en kul grej för att väldigt snabbt och väldigt enkelt kunna se vad som säljer bäst 
+
+Total sales value - För att se värdet av allt sålt.
+
+Average sell by hour - För att se en sammanfattning för den genomsnittliga försäljning varje timme.
+
+# Vilka är fördelarna med att använda MongoDB för detta ändamål?
+
+MongoDB är det mest populära NoSQL-databasen.  Den är lätt att lära sig och har enkla redskap för att få en bra övergripande information visuellt (genom att använda atlasDB). Den har öppenkällkod, men kan också användas av större företag i en liten annan version. Den går att använda lokalt men också i moln. Det är en dokumentbaserad databas. 
