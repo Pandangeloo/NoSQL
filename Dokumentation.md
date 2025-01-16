@@ -17,6 +17,68 @@ Använder data från SalesData. Summerar ihop det totala försäljningsvärdet. 
 ## Average Sell Value Per Hour
 Använder data från SalesData för att beräkna hur mycket som totalt har sålts och hur många timmar som använts för det, för att sedan beräkna medelvärdet per timme.
 
+## TotalSalesPerCategory
+Steg 1 `$group`: 
+- Grupperar dokumenten efter `category` med hjälp av värdet i fältet `Category`.
+- För varje grupp beräknas:
+  - **TotalSold**: Det totala antalet sålda enheter, beräknat med `$sum` på fältet `Quantity`.
+  - **TotalRevenue**: Den totala intäkten, veräknat genom att multiplicera `Quantity` med `PricePerUnit` och sen summera resultatet för gruppen.
+
+**Exempel på utdata:**
+```json
+   { "_id": "Sports", "TotalSold": 921, "TotalRevenue": 212621.85 },
+   { "_id": "Books", "TotalSold": 822, "TotalRevenue": 200530.07 },
+   { "_id": "Toys", "TotalSold": 1052, "TotalRevenue": 236789.37 },
+   { "_id": "Electronics", "TotalSold": 772, "TotalRevenue": 209463.76 },
+   { "_id": "Clothing", "TotalSold": 869, "TotalRevenue": 228791.47 },
+   { "_id": "Home & Kitchen", "TotalSold": 966, "TotalRevenue": 236441.88 }
+```
+
+## TopSellingProducts
+Steg 1 `$group`: 
+- Grupperar dokumenten efter `ProductName` med hjälp av värdet i feltet `ProductName`.
+- För varje grupp beräknas:
+  - **TotalSold:** Det totala antalet sålda enheter, beräknat med `$sum` på fältet `Quantity`.
+
+Steg 2 `$sort`: 
+- Sorterar dokumenten i fallande ordning baserat på värdet i fältet `TotalSold`.
+
+Steg 3 `$limit`:
+- Begränsar resultatet till den 5 övre dokumenten.
+
+**Exempel på utdata:**
+```json
+  { "_id": "Sci-Fi Book", "TotalSold": 306 },
+  { "_id": "Yoga Mat", "TotalSold": 259 },
+  { "_id": "Sneakers", "TotalSold": 257 },
+  { "_id": "Toaster", "TotalSold": 223 },
+  { "_id": "Sweater", "TotalSold": 211 }
+```
+
+## SalesByHour
+Steg 1 `$addFields`:
+- Använder `$dateToParts` för att extrahera delar av datumet från fältet `SalesTimestamp`.
+- Skapar ett nytt fält, `Hour`, med endast timdelen från SalesTimestamp. 
+
+Steg 2 `$group`: 
+- Grupperar dokumenten efter timmen som extraherades innan vilket anges med `_id: "$Hour.hour"`.
+- För varje timme beräknas:
+  - **TotalSold:** Det totala antalet sålda enheter under den specifika timmen, beräknat med `$sum` på fältet `Quantity`.
+
+Steg 3 `$match`:
+- Filtrerar grupperna så att endast timmar mellan 0 och 23 (inklusive) inkluderas i resultatet.
+  
+Steg 4 `$sort`:
+- Begränsar resultatet till en dast timme `_id: 1`.
+
+**Exempel på utdata:**
+```json
+  { "_id": 0, "TotalSold": 249 },
+  { "_id": 1, "TotalSold": 233 },
+  { "_id": 2, "TotalSold": 244 },
+  { "_id": 3, "TotalSold": 228 }
+```
+
 # Att skapa KPI-Visualiseringar
 
 
