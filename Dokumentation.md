@@ -80,7 +80,14 @@ Steg 4 `$sort`:
 ```
 
 # Att skapa KPI-Visualiseringar
+Top 5 products:
+Stapeldiagram som visar dom 5 bästsäljande produkter. x-axeln visar antal många produkter som säljs och y-axel visar produktnamn.
 
+Total Revenue Per Category: Visar Totala intäkter per kategori från TotalSalesPerCategory.
+
+Cirkeldiagram som visar lagerstatus från Products med Stock och ProductName.
+
+Två filter skapades för att kunna filtrera kategorier där Stapeldiagramet Total Revenue Per Category påverkas samt att kunna välja tidsperiod där linjediagrammet Hourly Sales påverkas.
 
 Hourly Sales Trend: Linjediagram med timme (x-axel) och antal sålda enheter (y-axel). Använde oss av "HourlySales" som datakälla, vars id är vilken timme på dygnet det är och sedn värdet på alla försäljningar den timmen. Efter lagt in rätta X och Y värden så gjorde vi kurvorna lite mjukare samt satte punkter vid timmarna så att det lättare visuellt att förstå. Ändrade titlar och färg. Den kan hjälpa oss förstå när det handlas mest under dagen, med det kan man tillexempel planera in när man ska fylla på varor. 
 
