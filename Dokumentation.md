@@ -16,10 +16,9 @@ Vi har skapat en databas som heter MongoLab i ett kluster som samtliga gruppmedl
 # Att skapa KPI-Visualiseringar
 
 
-Hourly Sales Trend: Linjediagram med timme (x-axel) och antal sålda enheter (y-axel). Använde oss av "HourlySales" som datakälla, vars id är vilken timme på dygnet det är och sedn värdet på alla försäljningar den timmen. #TIDIGARE MENINGEN KANSKE TAS BORT DÅ DEN KANSKE KOMMER FÖRKLARAS NÄR DET SKRIVS HUR MAN SKAPADE DET. 
-Efter lagt in rätta X och Y värden så gjorde vi kurvorna lite mjukare samt satte punkter vid timmarna så att det lättare visuellt att förstå. Ändrade titlar och färg. 
+Hourly Sales Trend: Linjediagram med timme (x-axel) och antal sålda enheter (y-axel). Använde oss av "HourlySales" som datakälla, vars id är vilken timme på dygnet det är och sedn värdet på alla försäljningar den timmen. Efter lagt in rätta X och Y värden så gjorde vi kurvorna lite mjukare samt satte punkter vid timmarna så att det lättare visuellt att förstå. Ändrade titlar och färg. Den kan hjälpa oss förstå när det handlas mest under dagen, med det kan man tillexempel planera in när man ska fylla på varor. 
 
 
 # Widgets
 
-MVI -Most valued Item - kunde vara kul att ännu lättare se vad det är som säljer mest. 
+MVI -Most valued Item - det är ju den produkt som sålt bäst. Den använder sig av samma vy som top 5 produkter, men är bara en kul grej för att väldigt snabbt och väldigt enkelt kunna se vad som säljer bäst 
