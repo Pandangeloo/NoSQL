@@ -1,0 +1,45 @@
+[
+  {
+    $group: {
+      _id: null,
+      minTime: {
+        $min: "$SalesTimestamp"
+      },
+      maxTime: {
+        $max: "$SalesTimestamp"
+      },
+      totalSalesValue: {
+        $sum: {
+          $multiply: [
+            "$Quantity",
+            "$PricePerUnit"
+          ]
+        }
+      }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      totalHours: {
+        $divide: [
+          {
+            $subtract: ["$maxTime", "$minTime"]
+          },
+          3600000
+        ]
+      },
+      totalSalesValue: 1
+    }
+  },
+  {
+    $project: {
+      averageSalesValuePerHour: {
+        $divide: [
+          "$totalSalesValue",
+          "$totalHours"
+        ]
+      }
+    }
+  }
+]
